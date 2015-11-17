@@ -20,7 +20,15 @@
 				 var processData = function(data){
 						console.log(data);
 						for(var i=0; i<data.length; i++) {
-							$("body").append(data[i].colors + " ");
+							//$("body").append(data[i].colors + " ");
+							if(data[i].colors === "black") {
+								var classToAdd = "large";
+								$("<h2>").addClass("large").html(data[i].colors).appendTo("body");
+							} else if(data[i].colors !== "black"){
+								var classToAdd = "small";
+								$("<h2>").addClass("small").html(data[i].colors).appendTo("body");
+							}
+
 						};
 					}
 						getData();
@@ -28,6 +36,15 @@
 			});
 		</script>
 		<style>
+			.large{
+				font-size:400px;
+				font-family:helvetica, sans-serif;
+			}
+			.small{
+				font-size:8px;
+				font-family:helvetica, sans-serif;
+				color:red;
+			}
 		</style>
 
 	</head>
