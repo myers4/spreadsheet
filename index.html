@@ -10,6 +10,20 @@
 					//configure spreadsheet
 				  var public_spreadsheet_url = '1yqq2llX6bag0RCY7lyvG7tE83kmjJkpK_9AVHfVmKKM';
 
+					var getData = function () {
+					 Tabletop.init({
+						 "key": public_spreadsheet_url,
+						 "callback": processData,
+						 "simpleSheet": true
+					 });
+				 }
+				 var processData = function(data){
+						console.log(data);
+						for(var i=0; i<data.length; i++) {
+							$("body").append(data[i].colors + " ");
+						};
+					}
+						getData();
 
 			});
 		</script>
